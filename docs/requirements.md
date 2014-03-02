@@ -3,11 +3,6 @@ New Bonus Ideas
 * Interface for Kimberly to update the rotation
 
 
-On Mon, Feb 10, 2014 at 6:12 PM, Michael Kiwala <michael.kiwala@gmail.com> wrote:
-> The following is not a bonus feature.  It was specifically mentioned as a requirement by Dr. Janikow today:
-> * Allow for constraints such as "I would like to take the computer graphics class"
-
-
 
 
 On Fri, Feb 7, 2014 at 8:12 AM, Michael Kiwala <michael.kiwala@gmail.com> wrote:
@@ -19,6 +14,7 @@ Requirements
 * Must be accessible by students
 * Create schedules for both part time and full time students
 * Accept constraints that the student might have on their schedule
+* Accept preferences of courses that the would like to take
 * Use the rotation information to forecast out the rest of the student's program
 * Must be able to figure degrees standing
 * Must also be able to consider waived courses
