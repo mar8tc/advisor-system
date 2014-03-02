@@ -1,7 +1,3 @@
-New Bonus Ideas
---------------
-* Interface for Kimberly to update the rotation
-
 
 
 
@@ -41,6 +37,8 @@ Bonus Features
 * Uses DARS report as input
 * Inspect get_schedule.pl to see if there is any additional information we can use
 * Allow for constraints such as "I would like to take the computer graphics class"
+* Interface for Kimberly to update the rotation
+
 
 
 
