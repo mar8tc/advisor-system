@@ -14,11 +14,9 @@ foreach my $node ($nodeset->get_nodelist) {
     my $subject = $node->find('subject/text()');
     my $number  = $node->find('course_number/text()');
     my $name    = $node->find('course_name/text()');
-    $name =~ s/[^A-Za-z. ]//g;
-    
 
     my $course_code = course_code($subject, $number);
-    printf qq|    "$course_code" : "$subject $number $name",\n|;
+    printf qq|    "$course_code" : "$subject $number",\n|;
 }
 print "}\n";
 
