@@ -1,0 +1,137 @@
+
+<html>
+<head>
+		<title>Space Planning Project</title>
+		<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" media="screen" href="blue.css"/>
+<link rel="stylesheet" type="text/css" href="login-box.css" />
+<!--<link rel="icon" type="image/x-icon" href="icon.jpg" />-->
+<link rel="stylesheet" href="calendar.css" media="screen"></link>
+<link rel = "stylesheet" type = "text/css" href = "css/ui-lightness/jquery-ui-1.10.3.custom.css" >
+
+<link rel="stylesheet" href="css/chosen.css">
+
+</head>
+
+<BODY   style="background-position:center; background-repeat:no-repeat; background-attachment:fixed;">
+         
+    <form>
+
+        <script type = "text/javascript" src = "jquery-2.0.3.min.js"></script>
+		<script type = "text/javascript" src = "jquery-ui-1.10.3.custom.min.js"></script>
+		      
+      
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!--<script src="js/bootstrap.min.js"></script>-->
+		<script src="js/chosen.jquery.min.js"></script>
+		<script>
+			$.getJSON( "mock-data/courses.json", function( json ) {
+				var items = [];
+				$.each( json, function( key, val ) {
+					items.push( "<option value='" + key + "'>" + val + "</option>" );
+				});
+
+				$(items.join( "" )).appendTo( ".course-select" );
+				$(".course-select").trigger("chosen:updated");
+			});
+			jQuery(document).ready(function(){
+				jQuery(".course-select").chosen();
+				$(".course-select").trigger("chosen:updated");
+			});
+		</script>
+		
+<TABLE width="100%" border=0 cellspacing=0 cellpadding=0 height=350>
+	<TBODY>
+		<TR>
+			<TD width=30><IMG src="spacer.gif" height=25 border=0></TD>
+			<TD height=20>&nbsp;</TD>
+			<TD width=30><IMG src="spacer.gif" height=25 border=0></TD>
+		</TR>
+		<TR valign="top">
+			<TD>&nbsp;</TD>
+			<TD>
+				<form name="serviceCenterForm" method="post" action=""><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="1f491631b4f2d782dbfd5363350352e8"><TABLE cellspacing=0 cellpadding=0 border=0 width="100%">
+					<TR>
+						<TD><FONT color="#000066" size=3><b>Advisor System</b></FONT></TD>
+					</TR>
+					<TR>
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>
+					
+					
+						<TD valign="top">
+							<TABLE cellspacing=0 cellpadding=0 border=0 width='100%'>
+									<TR>
+			<TD><FONT color="red">*</FONT>&nbsp;Courses Completed</TD>
+		<td><select
+          data-placeholder="Which courses have you already taken..."
+          class="course-select"
+          style="width:800px;"
+          multiple=""
+          tabindex="3">
+      </select></td></tr>
+			<TR>
+			<TD><FONT color="red">*</FONT>&nbsp;Courses Waived</TD>
+      <td><select
+          data-placeholder="Have you had any required courses waived..."
+          class="course-select"
+          style="width:400px;"
+          multiple=""
+          tabindex="3">
+      </select></td></tr>
+			<TR>
+			<TD><FONT color="red">*</FONT>&nbsp;Course Preferences</TD>
+      <td><select
+          data-placeholder="Which courses would you like to take..."
+          class="course-select"
+          style="width:400px;"
+          multiple=""
+          tabindex="3">
+      </select></td></tr>
+
+									<TR>
+										<TD colspan=2><IMG src="break.gif" height=1 width=200 vspace=6 /></TD>
+									</TR>
+									
+									
+									
+									
+									<TR>
+										<TD><FONT color="red">*</FONT>&nbsp; preference</TD>
+										<TD>&nbsp;<input type="checkbox" name = "evening" value="evening">Evening
+										&nbsp;<input type = "checkbox" name = "day" value = "day">Day
+										&nbsp;<input type="checkbox" name = "neither" value="neither">No Preference</TD>
+									</TR>
+									<TR>
+									
+									</TR>
+									<TR> 
+										<TD colspan=2><IMG src="break.gif" height=1 width=200 vspace=6 /></TD>
+									</TR>
+									
+									
+									
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>								
+					<TR>						
+						<TD>											
+							<input type="submit" name="save" value="Submit"></TD> <!-- they should be updated in database -->							
+					</TR>
+					<TR>
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>
+					<TR>
+						<TD height=20 colspan=2><IMG src="spacer.gif" width=40 height=10></TD>
+					</TR>
+				</TABLE>
+				
+				<input type="hidden" name="userName" value="IN000218"><input type="hidden" name="branchName" value="HYDERABAD [404]"><input type="hidden" name="loginUserType" value="4"><INPUT type="hidden" name="sessTok" value="null" />
+				</form></TD>
+		</TR>
+	</TBODY>
+</TABLE>	
+
+</BODY>
+</HTML>

@@ -1,0 +1,7 @@
+{
+	"Schedule":{
+		"Semester1":{"a":"aaa","b":"bbb","c":"ccc","d":"ddd"},
+		"Semester2":["e","f"],
+		"Semester3":["g","h","i","j"]
+	}
+}

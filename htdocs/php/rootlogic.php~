@@ -1,0 +1,32 @@
+<?php
+
+	$student = $_REQUEST["student"];
+	
+	//echo $student . "<br>";
+	
+	$newstudent = json_decode($student,true);
+	print "OK: We're in!";
+	var_dump($newstudent);
+	
+	//print json_encode($newstudent);
+	
+	$a = "CMP_SCI4250";
+	$b = "CMP_SCI5130";
+	$c = "CMP_SCI4610";
+	$d = "CMP_SCI5320";
+	$e = "CMP_SCI4760";
+	$f = "CMP_SCI5500";
+	$g = "CMP_SCI6340";
+	$h = "CMP_SCI5880";
+	$i = "CMP_SCI5520";
+	$j = "CMP_SCI5010";
+	
+	$Semester1 = "Fall 2014";
+	$Semester2 = "Spring 2015";
+	$Semester3 = "Fall 2015";
+	
+	$response = '{"Schedule":{"'.$Semester1.'":["'.$a.'","'.$b.'","'.$c.'","'.$d.'"],"'.$Semester2.'":["'.$e.'","'.$f.'"],"'.$Semester3.'":["'.$g.'","'.$h.'","'.$i.'","'.$j.'"]}}';
+	
+	print $response;
+	
+?>

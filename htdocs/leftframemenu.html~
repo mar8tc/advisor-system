@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> </title>
+	<LINK rel="stylesheet" type="text/css" href="login-box1.css" />
+	<script type="text/javascript" language="javascript" src="jquery-2.0.3.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+	        //slides the element with class "menu_body" when paragraph with class "menu_head" is clicked
+	        $("#firstpane p.menu_head").click(function(){
+	            $(this).css({}).next("div.menu_body").slideToggle(300).siblings("div.menu_body");
+		        //$(this).siblings().css({backgroundImage:"url(left.png)"});
+	        });
+	
+	        $("#firstpane p.menu_head1").click(function(){
+	            $(this).css({}).next("div.menu_body1").slideToggle(300).siblings("div.menu_body1");
+		        //$(this).siblings().css({backgroundImage:"url(left.png)"});
+	        });
+	        
+	        $("#firstpane p.menu_head2").click(function(){
+	            $(this).css({}).next("div.menu_body2").slideToggle(300).siblings("div.menu_body2");
+		        //$(this).siblings().css({backgroundImage:"url(left.png)"});
+	        });
+	        
+	        $("[href]").click(function(){
+	        	//$("[href]").css("background-color","#EFEFEF");
+		        //$(".menu_head a").css("background-color","#DFDFDF");
+		        //$(this).css("background-color","tan");
+		        $("[href]").css("font-weight","normal");
+		        $(this).css("font-weight","bold");
+		        //$(this).siblings().css({backgroundImage:"url(left.png)"});
+	        });
+	        
+	});
+	</script>
+	<style type="text/css">
+		.menu_list {   
+		  width: 100%;
+		}
+		.menu_head {
+		  padding: 5px 10px;
+		  cursor: pointer;
+		  position: relative;
+		  margin:1px;
+		  font-weight:normal;
+		  background: #DFDFDF;
+		}
+		.menu_head1 {
+		  padding: 0px 0px;
+		  cursor: pointer;
+		  position: relative;
+		  margin:0px;
+		  font-weight:normal;
+		  background: #EFEFEF;
+		}
+		.menu_head2 {
+		  padding: 0px 0px;
+		  cursor: pointer;
+		  position: relative;
+		  margin:0px;
+		  font-weight:normal;
+		  background: #EFEFEF;
+		}
+		
+		.menu_body {
+		  display:none;
+		}
+		.menu_body1 {
+		  display:none;
+		}
+		.menu_body2 {
+		  display:none;
+		}
+		
+		.menu_body a{
+		  display:block;
+		  color:#006699;
+		  background-color:#EFEFEF;
+		  padding-left:10px;
+		  font-weight:normal;
+		  text-decoration:none;
+		}
+		.menu_body a:hover{
+		  color: #000000;
+		  text-decoration:underline;
+		}
+
+		.menu_body1 a{
+		  display:block;
+		  color:#006699;
+		  background-color:#EFEFEF;
+		  padding-left:10px;
+		  font-weight:normal;
+		  text-decoration:none;
+		}
+		.menu_body1 a:hover{
+		  color: #000000;
+		  text-decoration:underline;
+		}
+		
+		.menu_body2 a{
+		  display:block;
+		  color:#006699;
+		  background-color:#EFEFEF;
+		  padding-left:10px;
+		  font-weight:normal;
+		  text-decoration:none;
+		}
+		.menu_body2 a:hover{
+		  color: #000000;
+		  text-decoration:underline;
+		}
+	</style>
+	</head>
+      <body style="background-color:#EFEFEF">
+	 <div>
+	  <div id='firstpane' class='menu_list'>
+	  <p class='menu_head'><a href='advisorform.html' style='text-decoration:none' target='mainFrame'>&nbsp;<FONT color='#000000' size=2>Graduate Advisor</a></p>	 </div>
+	 
+	  	  <p class='menu_head'><a href='http://www.cs.umsl.edu/grads/courses/compsci-3yr-grad.pdf' style='text-decoration:none' target=''>&nbsp;<FONT color='#000000' size=2>Rotation CS</a></p></div>
+	      
+	      <p class='menu_head'><a href='http://www.cs.umsl.edu/grads/courses/math-3yr-grad.pdf' style='text-decoration:none' target=''>&nbsp;<FONT color='#000000' size=2>Rotation MATH</a></p></div>
+	</body>
+</html>

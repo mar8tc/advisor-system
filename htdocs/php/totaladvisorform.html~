@@ -1,0 +1,228 @@
+
+
+<html>
+<head>
+	<title>Graduate Advisor</title>
+	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="stylesheet" type="text/css" media="screen" href="blue.css"/>
+	<link rel="stylesheet" type="text/css" href="login-box.css" />
+	<link rel="stylesheet" type="text/css" href="loading.css" />
+	<link rel="icon" type="image/x-icon" href="icon1.jpg" />
+	<link rel="stylesheet" href="calendar.css" media="screen"></link>
+	<link rel = "stylesheet" type = "text/css" href = "css/ui-lightness/jquery-ui-1.10.3.custom.css" >
+
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/chosen.css">
+    
+    
+</head>
+</HEAD>
+
+<BODY   style="background-position:center; background-repeat:no-repeat; background-attachment:fixed;">
+
+	<script type = "text/javascript" src = "jquery-2.0.3.min.js"></script>
+	<script type = "text/javascript" src = "jquery-ui-1.10.3.custom.min.js"></script>
+		      
+      
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!--<script src="js/bootstrap.min.js"></script>-->
+	<script src="js/chosen.jquery.min.js"></script>
+	<script>
+		$.getJSON( "mock-data/courses2.json", function( json ) {
+			var items = [];
+			$.each( json, function( key, val ) {
+				items.push( "<option value='" + key + "'>" + val + "</option>" );
+			});
+
+			$(items.join( "" )).appendTo( ".course-select" );
+			$(".course-select").trigger("chosen:updated");
+		});
+		jQuery(document).ready(function(){
+			jQuery(".course-select").chosen();
+			$(".course-select").trigger("chosen:updated");
+		});
+	</script>
+		<script>
+		$.getJSON( "mock-data/courses2.json", function( json ) {
+			var items = [];
+			$.each( json, function( key, val ) {
+				items.push( "<option value='" + key + "'>" + val + "</option>" );
+			});
+
+			$(items.join( "" )).appendTo( ".waived-select" );
+			$(".waived-select").trigger("chosen:updated");
+		});
+		jQuery(document).ready(function(){
+			jQuery(".waived-select").chosen();
+			$(".waived-select").trigger("chosen:updated");
+		});
+	</script>
+		    <div class = "block">
+						
+<TABLE width="100%" border=0 cellspacing=0 cellpadding=0 height=350>
+	<TBODY>
+		<TR>
+			<TD width=30></TD>
+			<TD height=20>&nbsp;</TD>
+			<TD width=30></TD>
+		</TR>
+		<TR valign="top">
+			<TD>&nbsp;</TD>
+			<TD>
+			    <div id = "form">
+				
+				<form name="serviceCenterForm" method="post" action="courses.php" id = "courses" enctype = "multipart/form-data">
+				
+				
+				<TABLE cellspacing=0 cellpadding=0 border=0 width="100%">
+					<TR>
+						<TD><FONT color="#000066" size=3><b>Advisor System</b></FONT></TD>
+					</TR>
+					<TR>
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>
+					
+					
+					<TD valign="top">
+					
+
+					
+						<TABLE cellspacing=0 cellpadding=0 border=0 width='100%'>
+							<div class = "element">
+							<TR>
+								<TD><FONT color="red">*</FONT>&nbsp;Courses Completed</TD>
+								<td><select
+									data-placeholder="Which courses have you already taken..."
+									class="course-select"
+									style="width:500px;"
+									name="coursescompleted"
+									multiple=""
+									tabindex="3">
+								</select></td>
+							</TR>
+							<TR> 
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>
+							</div>
+							<div class = "element">
+							<TR>
+							<TD><FONT color="red">*</FONT>&nbsp;Courses Waived</TD>
+								<td><select
+									data-placeholder="Have you had any required courses waived..."
+									class="course-select"
+									style="width:500px;"
+									name="courseswaived"
+									multiple=""
+									tabindex="3">
+								</select></td>
+							</TR>
+							<TR> 
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>
+                            </div>
+							<div id = "element">
+							<TR>
+								<TD><FONT color="red">*</FONT>&nbsp;Course Preferences</TD>
+								<TD><select
+									data-placeholder="Which courses would you like to take..."
+									class="course-select"
+									style="width:500px;"
+									name="coursepreferences"
+									multiple=""
+									tabindex="3">
+								</select></TD></TR>
+
+							<TR>
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>
+							</div>
+							<div id = "element">
+							<TR>
+								<TD><FONT color="red">*</FONT>&nbsp;Classes Per Semester</TD>
+								<TD><select><option name = "classno" value = "0">-Select-</option>
+								  <option name = "classno" value = "1">1 course</option>
+									<option name = "classno" value = "2">2 courses</option>
+									<option name = "classno" value = "3">3 courses</option>
+									<option name = "classno" value = "4">4 courses</option>
+									</select>
+								</TD>
+							</TR>
+							<TR> 
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>
+							</div>
+							<div id = "element">
+							
+							<TR>
+								<TD><FONT color="red">*</FONT>&nbsp;Class Time Preference</TD>
+								<TD>&nbsp;<input type="checkbox" name = "evening" value="evening">Evening
+								&nbsp;<input type = "checkbox" name = "day" value = "day">Day
+								&nbsp;<input type = "checkbox" name = "either" value = "either" checked>No Preference</TD>
+							</TR>
+							<TR> 
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>
+							</div>
+							<div id = "element">
+							<TR>
+								<TD><FONT color="red">*</FONT>&nbsp;Expected Graduation Date</TD>
+								<TD>Semester:<select><option name = "Semester" id="Semester" value = "0">-Select-</option>
+								  <option name = "semester" value = "spring">Spring 2014</option>
+									<option name = "semester" value = "summer">Summer 2014</option>
+									<option name = "semester" value = "fall">Fall 2014</option>
+									</select>
+									
+									
+									&nbsp;&nbsp;&nbsp;
+									Year:<select><option name = "Year" id="Year" value = "0">-Select-</option>
+								  <option name = "year" value = "2014">2014</option>
+								  <option name = "year" value = "2014">2015</option>
+								  <option name = "year" value = "2014">2016</option>
+								  <option name = "year" value = "2014">2017</option>
+								  <option name = "year" value = "2014">2018</option>
+								  <option name = "year" value = "2014">2019</option>
+									</select>
+								</TD>
+								</TD>
+							</TR>
+							<TR> 
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+							</TR>	
+							</div>		
+									
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>	
+						<div class = "element">
+					<TR>						
+						<TD>											
+							<input type="submit" name="save" value="Submit" onclick="Show()"></TD> <!-- they should be updated in database -->							
+					</TR>
+					<TR>
+						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
+					</TR>
+					<div class = "loading"></div>
+					</div>
+					<TR>
+						<TD height=20 colspan=2></TD>
+					</TR>
+				</TABLE>
+				
+				
+				
+			</form>
+			
+			</div>
+			
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>	
+          </div>
+		  <div class = "clear"></div>
+		  
+		  <div id="Input"></div>
+</BODY>
+</HTML>
