@@ -1,67 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Advisor System</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/chosen.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Advisor System</h1>
-    <form>
-      <select
-          data-placeholder="Which courses have you already taken..."
-          class="course-select"
-          style="width:95%;"
-          multiple=""
-          tabindex="3">
-      </select>
-      <select
-          data-placeholder="Have you had any required courses waived..."
-          class="course-select"
-          style="width:95%;"
-          multiple=""
-          tabindex="3">
-      </select>
-      <select
-          data-placeholder="Which courses would you like to take..."
-          class="course-select"
-          style="width:95%;"
-          multiple=""
-          tabindex="3">
-      </select>
-    <form>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/chosen.jquery.min.js"></script>
-    <script>
-        $.getJSON( "mock-data/courses.json", function( json ) {
-            var items = [];
-            $.each( json, function( key, val ) {
-              items.push( "<option value='" + key + "'>" + val + "</option>" );
-            });
-
-            $(items.join( "" )).appendTo( ".course-select" );
-            $(".course-select").trigger("chosen:updated");
-         });
-        jQuery(document).ready(function(){
-            jQuery(".course-select").chosen();
-            $(".course-select").trigger("chosen:updated");
-        });
-    </script>
-  </body>
-</html>
+<HTML>
+<HEAD>
+	<TITLE>Graduate Advisor</TITLE>
+	<LINK rel="icon" type="image/x-icon" href="icon.jpg" />
+</HEAD>
+<frameset cols="*" frameborder="NO" border="0" framespacing="0" rows="78,*">
+    <frame src="topframeadvise.html" name="topFrame" frameborder="no" noresize="noresize" id="topFrame" scrolling="no">
+        <frameset rows="*" cols="217,556*" framespacing="0" frameborder="no" border="0">
+            <frame src="leftframemenu.html" name="commander" frameborder="no" id="commander" scrolling="auto">
+         <frame src="advisorform.html" name="mainFrame" id="mainFrame" frameborder="no">
+        </frameset>
+</frameset>
+<noframes>SMS requires frames, but your browser does not support them.</noframes>
+</HTML>
