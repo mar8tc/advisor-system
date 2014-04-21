@@ -69,9 +69,10 @@ function Show(){
 			timepref = "\"" + timeofday[i].value + "\"";
 		}
 	}
-	var noclasses = "\"" + document.getElementById("classno").selectedIndex + "\"";
+	var noclassesmax = "\"" + document.getElementById("maxnumb").selectedIndex + "\"";
+	var noclassesmin =  "\"" + document.getElementById("minnumb").selectedIndex + "\"";
 	
-	var student = '{"student": {"courses": {"taken":' + taken + ',"waived":' + waived + ',"prefered":' + prefered + '},"timePref": {"timeofday":' + timepref + ',"classes":' + noclasses + '}}}';
+	var student = '{"student": {"courses": {"taken":' + taken + ',"waived":' + waived + ',"prefered":' + prefered + '},"timePref": {"timeofday":' + timepref + ',"maxclasses":' + noclassesmax + ',"minclasses":' + noclassesmin + '}}}';
 
 
 	//document.getElementById("Input").textContent = student;
@@ -80,7 +81,7 @@ function Show(){
 	xhr.onreadystatechange = showResult;//put this on the new page
 	xhr.open("POST","php/mirror.php?&student=" + student,true);
 	xhr.send();
-	document.getElementById("inputs").style.visibility="collapse";
+	document.getElementById("inputs").style.display="none";
 	document.getElementById("Output").style.visibility="visible";
 	document.getElementById("back").style.visibility="visible";
 	//document.location.href = "response.html";
@@ -88,9 +89,9 @@ function Show(){
 }
 
 function Back(){
-	document.getElementById("inputs").style.visibility="visible";
-	document.getElementById("Output").style.visibility="collapse";
-	document.getElementById("back").style.visibility="collapse";
+	document.getElementById("inputs").style.display="";
+	document.getElementById("Output").style.visibility="hidden";
+	document.getElementById("back").style.visibility="hidden";
 }
 
 
@@ -112,13 +113,12 @@ function showResult() {
 		}
 		table += "</table>";
 		//schedule.Schedule.Semester1[1]
-		document.getElementById("Output").innerHTML = table;
+		document.getElementById("Schedule").innerHTML = table;
 		
 		
 	}
 	
 
 }
-
 
 

@@ -159,14 +159,23 @@
 							</div>
 							<div id = "element">
 							<TR>
-								<TD><FONT color="red">*</FONT>&nbsp;Classes Per Semester</TD>
-								<TD><select name = "classno" id = "classno" ><option  value = "0">-Select-</option>
-								  <option value = "1">1 course</option>
+								<TR>
+									<TD><FONT color="red">*</FONT>&nbsp;Courses per Semester</TD>
+									<TD>
+										MIN:&nbsp;&nbsp;<select name = "minnumb" id = "minnumb" ><option  value = "0">-Select-</option>
+								  	<option value = "1">1 course</option>
 									<option value = "2">2 courses</option>
-									<option  value = "3">3 courses</option>
-									<option  value = "4">4 courses</option>
+									<option value = "3">3 courses</option>
+								
 									</select>
-								</TD>
+										MAX:&nbsp;&nbsp;<select name = "maxnumb" id = "maxnumb" ><option  value = "0">-Select-</option>
+								  	<option value = "1">1 course</option>
+									<option value = "2">2 courses</option>
+									<option value = "3">3 courses</option>
+									<option value = "4">4 courses</option>
+									</select>
+									</TD>
+								</TR>
 							</TR>
 							<TR> 
 								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
@@ -192,11 +201,6 @@
 							<!--<input type="submit" name="save" value="Submit" onclick="Show()"></TD>  they should be updated in database -->							<td><button type='button' name='show' id='show' onclick="Show()">GO!</button></td>
 					</TR>
 					<TR>
-						<TD><IMG src="break.gif" height=1 width="100%" vspace=6 /></TD>
-					</TR>
-					<div class = "loading"></div>
-					</div>
-					<TR>
 						<TD height=20 colspan=2></TD>
 					</TR>
 				</TABLE>
@@ -212,12 +216,19 @@
 	</TBODY>
 </TABLE>	
           </div>
+          
 		  <div class = "clear"></div>
 		  
-		  <div id="Input">stuff</div>
-		  
-		  <div id="Output" visibilty = "collapse">stuff</div>
-		  <button type='button' name='back' id='back' onclick="Back()">Back</button>
+		  <!--<div id="Input">stuff</div> -->
+		  <table id="Output" style="visibility:hidden"><tr><td>
+		  <div id="Schedule">stuff</div></td>
+		  <td style="width:10%"></td>
+		  <td style="width:35%; text-align:left; vertical-align:text-top"> <div id="Messages">
+		  	<p><FONT color="red">*</FONT>&nbsp;First time students must get their schedule approved by Kimberly.</p>
+		  	<p><FONT color="red">*</FONT>&nbsp;You must attend 5 seminars prior to graduation.</p>
+		  	<p><FONT color="red">*</FONT>&nbsp;After completing 21 hours, if you want to graduate in the coming term, you must file your intent.</p>
+	  	</td></tr></table>
+		  <button type='button' name='back' id='back' onclick="Back()" style="visibility:hidden">Back</button>
 		  
 </BODY>
 </HTML>

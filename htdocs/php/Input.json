@@ -1,0 +1,14 @@
+{
+	"student": {
+		"courses": {
+			"taken": ["course1", "course2"],
+			"waived": ["course3", "course4"],
+			"prefered": ["course5", "course6"] 
+		},
+		"timePref": {
+			"Day": "timeofday",
+			"maxclasses": "noclassesmax",
+			"minclasses": "noclassesmin"
+		}
+	}
+}

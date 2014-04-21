@@ -118,10 +118,16 @@
       <body style="background-color:#EFEFEF">
 	 <div>
 	  <div id='firstpane' class='menu_list'>
-	  <p class='menu_head'><a href='advisorform.html' style='text-decoration:none' target='mainFrame'>&nbsp;<FONT color='#000000' size=2>Graduate Advisor</a></p>	 </div>
+	  <p class='menu_head'><a href='advisorform.html' style='text-decoration:none' target='mainFrame'>&nbsp;<FONT color='#000000' size=2>Graduate Advisor</a></p>	 
 	 
-	  	  <p class='menu_head'><a href='http://www.cs.umsl.edu/grads/courses/compsci-3yr-grad.pdf' style='text-decoration:none' target=''>&nbsp;<FONT color='#000000' size=2>Rotation CS</a></p></div>
+	  	  <p class='menu_head'><a href='http://www.umsl.edu/mathcs/graduate-studies/compsci-3yr-grad.pdf' style='text-decoration:none' target='_blank'>&nbsp;<FONT color='#000000' size=2>Rotation CS</a></p>
 	      
-	      <p class='menu_head'><a href='http://www.cs.umsl.edu/grads/courses/math-3yr-grad.pdf' style='text-decoration:none' target=''>&nbsp;<FONT color='#000000' size=2>Rotation MATH</a></p></div>
+	      <p class='menu_head'><a href='http://www.umsl.edu/mathcs/graduate-studies/math-3yr-grad.pdf' style='text-decoration:none' target='_blank'>&nbsp;<FONT color='#000000' size=2>Rotation MATH</a></p>
+
+		<p class='menu_head'><a href='http://www.umsl.edu/mathcs/graduate-studies/GradCSCourseDescriptions.pdf' style='text-decoration:none' target='_blank'>&nbsp;<FONT color='#000000' size=2>CS Course Descriptions</a></p>
+
+		<p class='menu_head'><a href='http://www.umsl.edu/mathcs/graduate-studies/GradMathCourseDescriptions.pdf' style='text-decoration:none' target='_blank'>&nbsp;<FONT color='#000000' size=2>MATH Course Descriptions</a></p>
+
+		<p class='menu_head'><a href='http://www.umsl.edu/mathcs/graduate-studies/math-3yr-grad.pdf' style='text-decoration:none' target='_blank'>&nbsp;<FONT color='#000000' size=2>Course Catalougue</a></p></div>
 	</body>
 </html>

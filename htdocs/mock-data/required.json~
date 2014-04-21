@@ -1,0 +1,20 @@
+{
+    "CMP_SCI2261" : "CMP SCI 2261 ObjectOriented Programming",
+    "CMP_SCI2700" : "CMP SCI 2700 Computer Architecture and Organization",
+    "CMP_SCI2750" : "CMP SCI 2750 System Programming and Tools",
+    "CMP_SCI3010" : "CMP SCI 3010 Web Programming",
+    "CMP_SCI3130" : "CMP SCI 3130 Design and Analysis of Algorithms",
+    "CMP_SCI4010" : "CMP SCI 4010 Advanced Web Development with Java",
+    "CMP_SCI4250" : "CMP SCI 4250 Programming Languages",
+    "CMP_SCI4300" : "CMP SCI 4300 Introduction to Artificial Intelligence",
+    "CMP_SCI4410" : "CMP SCI 4410 Computer Graphics",
+    "CMP_SCI4760" : "CMP SCI 4760 Operating Systems",
+    "CMP_SCI5130" : "CMP SCI 5130 Advanced Data Structures and Algorithms",
+    "CMP_SCI5320" : "CMP SCI 5320 Introduction to Evolutionary Computation",
+    "CMP_SCI5420" : "CMP SCI 5420 Digital Image Processing",
+    "CMP_SCI5500" : "CMP SCI 5500 Software Engineering",
+    "CMP_SCI5700" : "CMP SCI 5700 Computer Systems"
+    "CMP_SCI5740" : "CMP SCI 5740 High Performance Computing",
+    "MATH1320" : "MATH 1320 Applied Statistics I",
+    "MATH3000" : "MATH 3000 Discrete Structures"
+}
