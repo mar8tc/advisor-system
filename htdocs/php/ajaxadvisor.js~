@@ -106,14 +106,21 @@ function showResult() {
 		var table = "<table>";
 		for (var semester in schedule.Schedule){
 			table += "<tr><td>" + semester + "</td></tr>";
-			for (var course in schedule.Schedule[semester]){
+
+
+
+
+
+
+
+			for (var course in schedule.Schedule[semester]){ 
 				table += "<tr><td></td><td>" + schedule.Schedule[semester][course] + "</td></tr>";
 			}
 
 		}
 		table += "</table>";
 		//schedule.Schedule.Semester1[1]
-		document.getElementById("Output").innerHTML = table;
+		document.getElementById("Schedule").innerHTML = table;
 		
 		
 	}

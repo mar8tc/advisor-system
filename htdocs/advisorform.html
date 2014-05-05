@@ -23,8 +23,10 @@
 	<script type = "text/javascript" src = "jquery-2.0.3.min.js"></script>
 	<script type = "text/javascript" src = "jquery-ui-1.10.3.custom.min.js"></script>
 	
-	<script src="php/ajaxadvisor.js"></script>
-      
+	<!--<script src="php/ajaxadvisor.js"></script> -->
+	<script src="js/scheduleUI.js"></script>
+
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -198,7 +200,7 @@
 						<div class = "element">
 					<TR>						
 						<TD>											
-							<!--<input type="submit" name="save" value="Submit" onclick="Show()"></TD>  they should be updated in database -->							<td><button type='button' name='show' id='show' onclick="Show()">GO!</button></td>
+							<!--<input type="submit" name="save" value="Submit" onclick="Show()"></TD>  they should be updated in database -->							<td><button type='button' name='show' id='show' onclick="build()">GO!</button></td>
 					</TR>
 					<TR>
 						<TD height=20 colspan=2></TD>
@@ -220,15 +222,17 @@
 		  <div class = "clear"></div>
 		  
 		  <!--<div id="Input">stuff</div> -->
-		  <table id="Output" style="visibility:hidden"><tr><td>
-		  <div id="Schedule">stuff</div></td>
-		  <td style="width:10%"></td>
-		  <td style="width:35%; text-align:left; vertical-align:text-top"> <div id="Messages">
+		  <table id="scheduleholder" style="visibility:hidden"><tr><td>
+		  <div id="Output"><table id="schedule" >
+				</table></div></td>
+
+		  <td style="width:45%; text-align:left; vertical-align:text-top"> <div id="Messages">
 		  	<p><FONT color="red">*</FONT>&nbsp;First time students must get their schedule approved by Kimberly.</p>
 		  	<p><FONT color="red">*</FONT>&nbsp;You must attend 5 seminars prior to graduation.</p>
 		  	<p><FONT color="red">*</FONT>&nbsp;After completing 21 hours, if you want to graduate in the coming term, you must file your intent.</p>
 	  	</td></tr></table>
-		  <button type='button' name='back' id='back' onclick="Back()" style="visibility:hidden">Back</button>
-		  
+		  <!--<button type='button' name='back' id='back' onclick="Back()" style="visibility:hidden">Back</button>-->
+		  <button type='button' name='add' id='add' onclick="addNew()"style="visibility:hidden">Add</button>
+
 </BODY>
 </HTML>

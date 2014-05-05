@@ -1,23 +1,2 @@
-{
-	"Schedule":
-	{
-		"Fall 2014":
-		{
-			"CMP_SCI4250":"CMP SCI 4250 Programming Languages",
-			"CMP_SCI5130":"CMP SCI 5130 Advanced Data Structures and Algorithms",
-			"CMP_SCI4610":"CMP SCI 4610 Database Management Systems",
-			"CMP_SCI5320":"CMP SCI 5320 Introduction to Evolutionary Computation"
-		},
-		"Spring 2015":
-		{
-			"CMP_SCI4760":"CMP SCI 4760 Operating Systems",
-			"CMP_SCI5500":"CMP SCI 5500 Software Engineering"
-		},"Fall 2015":
-		{
-			"CMP_SCI6340":"CMP SCI 6340 Genetic Programming",
-			"CMP_SCI5880":"CMP SCI 5880 Computer Science Independent Project",
-			"CMP_SCI5520":"CMP SCI 5520 Object Oriented Analysis and Design",
-			"CMP_SCI5700":"CMP SCI 5700 Computer Systems"
-		}
-	}
-}
+{"Schedule":{"Fall 2014":{"CMP_SCI4250":"CMP SCI 4250 Programming Languages","CMP_SCI5130":"CMP SCI 5130 Advanced Data Structures and Algorithms","CMP_SCI5420":"CMP SCI 5420 Digital Image Processing","CMP_SCI4410":"CMP SCI 4410 Computer Graphics"},"Spring 2015":{"CMP_SCI4760":"CMP SCI 4760 Operating Systems","CMP_SCI5500":"CMP SCI 5500 Software Engineering","CMP_SCI5700":"CMP SCI 5700 Computer Systems","CMP_SCI5320":"CMP SCI 5320 Introduction to Evolutionary Computation"},"Fall 2015":{"CMP_SCI6340":"CMP SCI 6340 Genetic Programming","CMP_SCI5010":"CMP SCI 5010 Enterprise Web Development"}}}
+

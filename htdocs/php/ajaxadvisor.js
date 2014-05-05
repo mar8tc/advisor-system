@@ -1,5 +1,5 @@
 var xhr;
-
+/**
 function Show(){       
 
 	var coursesTaken = document.getElementById("completed");
@@ -87,7 +87,7 @@ function Show(){
 	//document.location.href = "response.html";
 	showResult();
 }
-
+*/
 function Back(){
 	document.getElementById("inputs").style.display="";
 	document.getElementById("Output").style.visibility="hidden";
@@ -106,7 +106,14 @@ function showResult() {
 		var table = "<table>";
 		for (var semester in schedule.Schedule){
 			table += "<tr><td>" + semester + "</td></tr>";
-			for (var course in schedule.Schedule[semester]){
+
+
+
+
+
+
+
+			for (var course in schedule.Schedule[semester]){ 
 				table += "<tr><td></td><td>" + schedule.Schedule[semester][course] + "</td></tr>";
 			}
 
