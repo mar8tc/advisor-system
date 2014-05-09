@@ -1,0 +1,47 @@
+<MSCSReq xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://comp.umsl.edu/~xml_data/MSCSDegreeReq.xsd"> 
+    <CoreCourses>
+        <corecourse>
+	    <subject>CMP SCI</subject>
+            <course_number>4250</course_number>
+            <course_name>Programming Languages</course_name>            
+        </corecourse>
+        <corecourse>
+	    <subject>CMP SCI</subject>
+            <course_number>4760</course_number>
+            <course_name>Operating Systems</course_name>            
+        </corecourse>
+        <corecourse>
+	    <subject>CMP SCI</subject>
+            <course_number>5130</course_number>
+            <course_name>Advanced Data Structures and Algorithms</course_name>            
+        </corecourse>
+        <corecourse>
+	    <subject>CMP SCI</subject>
+            <course_number>5500</course_number>
+            <course_name>Software Engineering</course_name>     
+        </corecourse>
+        <corecourse>
+	    <subject>CMP SCI</subject>
+            <course_number>5700</course_number>
+            <course_name>Computer Systems</course_name>                 
+        </corecourse>        
+    </CoreCourses>
+    <CourseReqd>
+        <NumCourses>        
+            <noofclasses>6</noofclasses>
+            <atlevel>5000</atlevel>
+        </NumCourses>    
+        <NumCourses>        
+            <noofclasses>1</noofclasses>
+            <atlevel>6000</atlevel>
+        </NumCourses> 
+        <NumCourses>        
+            <noofclasses>10</noofclasses>
+            <atlevel>all</atlevel>
+        </NumCourses>             
+    </CourseReqd>
+</MSCSReq>
+
+   
+
+

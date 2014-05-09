@@ -1,13 +1,188 @@
+////////////////////////////////////////
+
+function getCourses(){
+
+	$(document).ready(function(){
+
+	$.ajax({
+		type: "GET",
+		url: "xml/Courses.xml",
+		dataType: "xml",
+		success: function(xml) {
+		
+			$(xml).find('course').each(function(){
+				//alert($(this).find('year').text());
+
+
+						//alert($(this).find('rotation_term').find('term').text());
+						var subject = $(this).find('subject').text();
+						var courseno = $(this).find('course_number').text();
+						var name = $(this).find('course_name').text();
+						//alert(courseno[0]);
+					
+							//alert($(this).find('course_name').text());
+							
+								var key = subject + courseno;
+								key = key.replace(/ /g, "_");
+
+								//document.getElementById("dump").innerHTML += key + "<br>";
+								var option = "<option value='" + key + "'>" + subject + " " + courseno + " " + name + " </option>"
+								//alert(option);
+
+								$(option).appendTo("#course-select");	
+								$("#course-select").trigger("chosen:updated");
+							//alert(key + " added");
+						
+						});
+					
+				
+				
+			}
+
+	});
+		
+		//
+	});
+
+	
+	$(".course-select").chosen();
+/**
+	jQuery(document).ready(function(){
+		jQuery("."+ year + term+ "-select").chosen();
+		$("#"+ year + term+ "-select").trigger("chosen:updated");
+	});
+
+*/
+}
+
+///////////////////////////////////////
+
+function getWaived(){
+
+	$(document).ready(function(){
+
+	$.ajax({
+		type: "GET",
+		url: "xml/MSCSDegreeReq.xml",
+		dataType: "xml",
+		success: function(xml) {
+		
+			$(xml).find('corecourse').each(function(){
+				//alert($(this).find('year').text());
+
+
+						//alert($(this).find('rotation_term').find('term').text());
+						var subject = $(this).find('subject').text();
+						var course_number = $(this).find('course_number').text();
+						var course_name = $(this).find('course_name').text();
+						//var noofclasses = $(this).find('noofclasses').text();
+						//var level       = $(this).find('atlevel').text();
+						//alert(courseno[0]);
+					       
+							//alert($(this).find('course_name').text());
+							
+								var key = subject + course_number;
+								key = key.replace(/ /g, "_");
+                          
+								//document.getElementById("dump").innerHTML += key + "<br>";
+								var option = "<option value='" + key + "'>" + subject + " " + course_number + " " + course_name + " </option>"
+								//alert(option);
+
+								$(option).appendTo("#waived-select");	
+								$("#waived-select").trigger("chosen:updated");
+						});
+					
+				
+				
+			}
+
+	});
+		
+		//
+	});
+
+	
+	$(".waived-select").chosen();
+/**
+	jQuery(document).ready(function(){
+		jQuery("."+ year + term+ "-select").chosen();
+		$("#"+ year + term+ "-select").trigger("chosen:updated");
+	});
+
+*/
+}
+
+//////////////////////////////////////
+
+function getPrefered(){
+
+
+	
+	$(document).ready(function(){
+
+	$.ajax({
+		type: "GET",
+		url: "xml/Courses.xml",
+		dataType: "xml",
+		success: function(xml) {
+		
+			$(xml).find('course').each(function(){
+				//alert($(this).find('year').text());
+
+
+					//alert($(this).find('rotation_term').find('term').text());
+						var subject = $(this).find('subject').text();
+						var courseno = $(this).find('course_number').text();
+						var name = $(this).find('course_name').text();
+						var required = $(this).find('and_required').text();
+						//alert(courseno[0]);
+					       
+							//alert($(this).find('course_name').text());
+							
+								var key = subject + courseno;
+								key = key.replace(/ /g, "_");
+                              if((courseno >= 4000)||(courseno >= 5000))
+							  {
+								//document.getElementById("dump").innerHTML += key + "<br>";
+								var option = "<option value='" + key + "'>" + subject + " " + courseno + " " + name + " </option>"
+								//alert(option);
+
+								$(option).appendTo("#prefered-select");	
+								$("#prefered-select").trigger("chosen:updated");
+							//alert(key + " added");
+						     }
+						});
+					
+				
+				
+			}
+
+	});
+		
+		//
+	});
+
+	
+	$(".prefered-select").chosen();
+/**
+	jQuery(document).ready(function(){
+		jQuery("."+ year + term+ "-select").chosen();
+		$("#"+ year + term+ "-select").trigger("chosen:updated");
+	});
+
+*/
+}
+
 //////////////////////////////////////
 var xhr;
-var taken = [];
-var yearstore = 2016;
-var termstore = "Spring";
+var yearstore = 2014;
+var termstore = "Fall";
+var schedule;
 //////////////////////////////////////
 
 function Show(){       
-	alert("in");
-	var coursesTaken = document.getElementById("completed");
+	//alert("in");
+	var coursesTaken = document.getElementById("course-select");
 	var count = 0;
 	var result1 = "[";
 	       //step through options
@@ -26,7 +201,7 @@ function Show(){
         //finish off the list and print it out
         result1 += "]";
 
-	var coursesWaived = document.getElementById("waived");
+	var coursesWaived = document.getElementById("waived-select");
 	count = 0;
     var result2 = "[";
 	       //step through options
@@ -45,7 +220,7 @@ function Show(){
         //finish off the list and print it out
         result2 += "]";
         
-	var coursePref = document.getElementById("preferences");  
+	var coursePref = document.getElementById("prefered-select");  
 	count = 0;      
         var result3 = "[";
 	       //step through options
@@ -83,27 +258,151 @@ function Show(){
 	//document.getElementById("Input").textContent = student;
 	
 	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = build();//put this on the new page
+	xhr.onreadystatechange = build;//put this on the new page
 	xhr.open("POST","php/mirror.php?&student=" + student,true);
 	xhr.send();
-	document.getElementById("inputs").style.display="none";
-	document.getElementById("Output").style.visibility="visible";
-	document.getElementById("back").style.visibility="visible";
-	//document.location.href = "response.html";
-	document.getElementById("add").style.visibility="hidden";
+
 	build();
 }
 
-function changeTaken(evt, param){
 
 
+function check(select){
+	//alert('in');
+	var courses = $('#'+select.id).val();
+	//var text = $('#'+select.id).text();
+	//var names = text.split(/([DE])/)
+	//alert(String(names));
+	var info = select.id.split("-");
+	var semester = info[0];
+	//alert(schedule.Schedule[semester].length);
+	var type;
+	var coursevar;
+	var coursename;
+	
+	for (var course in schedule.Schedule[semester]){ 
+		var pass = 0;
+		for (var selcourse in courses){
 
+			if(courses[selcourse] == course) pass = 1;
+			//alert(courses[selcourse] + " " + course + " " + pass);
+		}
+		if(pass == 0){
+			type = "remove";
+			coursevar = course;
+
+		}
+	}
+
+	for (var selcourse in courses){ 
+		var pass = 0;
+		for (var course in schedule.Schedule[semester]){
+
+			if(courses[selcourse] == course) pass = 1;
+			//alert(courses[selcourse] + " " + course + " " + pass);
+		}
+		if(pass == 0){
+			type = "add";
+			coursevar = courses[selcourse];
+			//coursename = names[selcourse];
+			//alert(coursevar + " " + coursename);
+		}
+	}
+	//for(var test in schedule.Schedule[semester])alert(test);
+	
+	//alert(schedule.Schedule[semester][coursevar] + " " + type);
+	if (type == "remove"){
+		delete schedule.Schedule[semester][coursevar];
+	}
+	else if (type == "add"){
+		schedule.Schedule[semester][coursevar] = coursevar;
+	}
+	//alert(schedule.Schedule[semester][coursevar] + " " + type);
+	//for(var test in schedule.Schedule[semester])alert(test);
+	checkReqs();
 
 }
 
-function checkTaken(){
+function checkReqs(){
+	var required = [];
+	var courses = [];
+
+	for (var semester in schedule.Schedule){
+		//alert(semester);
+
+		for (var course in schedule.Schedule[semester]){ 
+			courses.push(course);
+		}
+		//alert(courses);
+	}
 	
 
+	$(document).ready(function(){
+
+	$.ajax({
+		type: "GET",
+		url: "xml/MSCSDegreeReq.xml",
+		dataType: "xml",
+		success: function(xml) {
+		
+			$(xml).find('corecourse').each(function(){
+				//alert($(this).find('year').text());
+
+
+				//alert($(this).find('rotation_term').find('term').text());
+				var subject = $(this).find('subject').text();
+				var course_number = $(this).find('course_number').text();
+				var course_name = $(this).find('course_name').text();
+				//var noofclasses = $(this).find('noofclasses').text();
+				//var level       = $(this).find('atlevel').text();
+				//alert(courseno[0]);
+				      
+				//alert($(this).find('course_name').text());
+				
+				var key = subject + course_number;
+				key = key.replace(/ /g, "_");
+                     
+				//document.getElementById("dump").innerHTML += key + "<br>";
+				var val = subject + " " + course_number + " " + course_name + "</br>";
+				var pass = 0;
+				for (var course in courses){
+					//alert(courses[course] + " " + key);
+					if (courses[course] == key) pass = 1;
+					else;
+				}
+				//alert(val);
+				if (pass == 0){
+					document.getElementById("remaining").innerHTML += val;
+
+				}
+				else;
+
+			});
+			//alert(required);
+			//$(required.join("")).appendTo("#required");
+		
+		}
+
+	});
+		
+		//
+	});
+	var fivecount = 0;
+	var sixcount = 0;
+	var totalcount = 0;
+	for (var course in courses){
+		
+		var number = courses[course][7];
+		//alert(number);
+		if (number >= 4) totalcount = totalcount + 1;
+		if (number >= 5) fivecount = fivecount + 1;
+		if (number == 6) sixcount = sixcount + 1;
+		
+		
+	}
+	document.getElementById("fivek").innerHTML = fivecount + "/6 Courses of 5000 level or higher";
+	document.getElementById("sixk").innerHTML = sixcount + "/1 6000 Level Course";
+	document.getElementById("thirtyhours").innerHTML = totalcount * 3 + "/30 Hours";
 
 
 }
@@ -115,94 +414,6 @@ function Back(){
 	document.getElementById("add").style.visibility="hidden";
 }
 */
-function buildSchedule(){
-
-	var response = '{"Schedule":{"Fall_2014":{"CMP_SCI4250":"CMP SCI 4250 Programming Languages","CMP_SCI5130":"CMP SCI 5130 Advanced Data Structures and Algorithms","CMP_SCI4610":"CMP SCI 4610 Database Management Systems","CMP_SCI5320":"CMP SCI 5320 Introduction to Evolutionary Computation"},"Spring_2015":{"CMP_SCI4760":"CMP SCI 4760 Operating Systems","CMP_SCI5500":"CMP SCI 5500 Software Engineering"},"Fall_2015":{"CMP_SCI6340":"CMP SCI 6340 Genetic Programming","CMP_SCI5880":"CMP SCI 5880 Computer Science Independent Project","CMP_SCI5520":"CMP SCI 5520 Object Oriented Analysis and Design","CMP_SCI5700":"CMP SCI 5700 Computer Systems"}}}';
-
-
-	var schedule = eval ("(" + response + ")"); 
-
-	for (var semester in schedule.Schedule){
-		var info = semester.split("_");
-		var year = info[1];
-		var term = info[0];
-		//alert(semester + " " + year);
-
-		var table ="<tr><td>" + semester + "</td></tr><tr><td>";
-
-		table += "<select multiple class='" + semester + "-select' id='" + semester + "-select' tabindex='3' style='width:500px;'>";
-
-		document.getElementById("schedule").innerHTML += table;
-
-
-	$(document).ready(function(){
-
-		$.ajax({
-			type: "GET",
-			url: "xml/Rotation.xml",
-			dataType: "xml",
-			success: function(xml) {
-
-			$(xml).find('rotation_year').each(function(){
-
-				//alert($(this).find('year').text() + " " + year);
-				if ($(this).find('year').text() == year){
-					$(this).find('course').each(function(){
-						//alert($(this).find('rotation_term').find('term').text());
-						var subject = $(this).find('subject').text();
-						var courseno = $(this).find('course_number').text();
-						var name = $(this).find('course_name').text();
-						//alert(courseno[0]);
-						$(this).find('rotation_term').each(function(){
-							var time = $(this).find('time_code').text();
-							var sem = $(this).find('term').text();
-							if (sem.indexOf(term) > -1 && time != "" && courseno[0] >= 4){
-							
-								var key = subject + courseno;
-								key = key.replace(/ /g, "_");
-
-								document.getElementById("dump").innerHTML += key + "<br>";
-								var option = "<option value='" + key + "' ";
-								for (var course in schedule.Schedule[semester]){
-									//alert(course + "  " + key);
-									if (course == key) option += "selected='selected'";
-									else;
-								}
-								option += ">" + subject + " " + courseno + " " + name + "</option>"
-
-								$(option).appendTo("#"+ year + term + "-select");	
-								$("#"+ year + term + "-select").trigger("chosen:updated");
-							//alert(key + " added");
-								}
-							});
-						});
-					}
-					
-				});
-			}
-		});
-		//$(items.join( "" )).appendTo( "#semester-select");
-		//
-	});
-
-		document.getElementById("schedule").innerHTML += "</select></td></tr>";
-
-
-		jQuery(document).ready(function(){
-			jQuery("#"+semester+"-select").chosen();
-			$("#"+semester+"-select").trigger("chosen:updated");
-		});
-
-
-
-
-		
-	}
-	//schedule.Schedule.Semester1[1]
-
-		
-		
-}
 
 
 var counter = 0;
@@ -232,17 +443,16 @@ function test(){
 
 function build(){
 	//alert("in");
-/**
-if ((xhr.readyState == 4) && (xhr.responseText != "")) {
-		alert("now...");
+
+	//alert(xhr.readyState);
+	if ((xhr.readyState == 4) && (xhr.responseText != "")) {
+		//alert("now...");
 		var response = xhr.responseText;
-
-*/
-
-
+		//document.getElementById("schedule").innerHTML = response;
+/**
 	var response = '{"Schedule":{"Fall_2014":{"CMP_SCI4250":"CMP SCI 4250 Programming Languages","CMP_SCI5130":"CMP SCI 5130 Advanced Data Structures and Algorithms","CMP_SCI5420":"CMP SCI 5420 Digital Image Processing","CMP_SCI4410":"CMP SCI 4410 Computer Graphics"},"Spring_2015":{"CMP_SCI4760":"CMP SCI 4760 Operating Systems","CMP_SCI5500":"CMP SCI 5500 Software Engineering","CMP_SCI5700":"CMP SCI 5700 Computer Systems","CMP_SCI5320":"CMP SCI 5320 Introduction to Evolutionary Computation"},"Fall_2015":{"CMP_SCI6340":"CMP SCI 6340 Genetic Programming","CMP_SCI5010":"CMP SCI 5010 Enterprise Web Development"}}}';
-
-	var schedule = eval ("(" + response + ")"); 
+*/
+	schedule = eval ("(" + response + ")"); 
 
 	var courses;
 	for (var semester in schedule.Schedule){
@@ -251,43 +461,64 @@ if ((xhr.readyState == 4) && (xhr.responseText != "")) {
 
 		for (var course in schedule.Schedule[semester]){ 
 			courses.push(course);
-			taken.push(course);
 		}
 		//alert(courses);
 		addSemester(courses);
 	}
 
-	//checkTaken();
-	//}
+	checkReqs();
+	
 
-	//document.getElementById("inputs").style.display="none";
+	document.getElementById("inputs").style.display="none";
 	document.getElementById("Output").style.visibility="visible";
+	document.getElementById("scheduleholder").style.visibility="visible";
 	//document.getElementById("back").style.visibility="visible";
 	//document.location.href = "response.html";
 	document.getElementById("add").style.visibility="visible";
+	}
 }
+
 
 function addNew(){
 	var semester = [ termstore + "_" + yearstore];
+	//alert(semester);
+	schedule.Schedule[semester] = semester;
+
+
 	if (termstore == "Fall"){
 		yearstore = yearstore + 1;
 		termstore = "Spring";
 	}
 	else termstore = "Fall";
 
-	addSemester(semester);
+
+	if (semester != "FALL_2017"){
+		addSemester(semester);
+	}
+	else;
 }
 
 function addSemester(list){
+		
+
+
 	var info = list[0].split("_");
 	var year = info[1];
 	var term = info[0];
-	var semester = "<tr><td>" + term + " " + year + "</td></tr><tr><td>";
-	var courses = list.shift();
+
+	if (term == "Fall"){
+		yearstore = yearstore + 1;
+		termstore = "Spring";
+	}
+	else termstore = "Fall";
+
+
+	var html = "<tr><td>" + term + " " + year + "</td></tr><tr><td>";
+	var semester = list[0];
 	//alert(list[0]);
-	semester += "<select multiple class='"+ year + term + "-select' id='"+ year + term +"-select' tabindex='3' style='width:500px;'>";
-	semester += "</select></td></tr>";
-	$(semester).appendTo("#schedule");
+	html += "<select multiple class='"+ semester + "-select' id='"+ semester +"-select' tabindex='3' style='width:500px;' onchange='check(this)'>";
+	html += "</select></td></tr>";
+	$(html).appendTo("#schedule");
 	//document.getElementById("schedule").innerHTML += semester;
 	
 
@@ -332,8 +563,8 @@ function addSemester(list){
 								option += ">" + subject + " " + courseno + " " + name + " (" + time +")</option>"
 								//alert(option);
 
-								$(option).appendTo("#"+ year + term + "-select");	
-								$("#"+ year + term + "-select").trigger("chosen:updated");
+								$(option).appendTo("#"+ semester + "-select");	
+								$("#"+ semester + "-select").trigger("chosen:updated");
 							//alert(key + " added");
 						}
 						});
@@ -350,7 +581,11 @@ function addSemester(list){
 	});
 
 	
-	$("." + year + term + "-select").chosen();
+	$("." + semester + "-select").chosen();
+
+	$("." + semester + "-select").chosen({
+		max_selected_options: 4
+	});
 /**
 	jQuery(document).ready(function(){
 		jQuery("."+ year + term+ "-select").chosen();

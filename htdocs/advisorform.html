@@ -18,7 +18,7 @@
     
 </head>
 
-<BODY   style="background-position:center; background-repeat:no-repeat; background-attachment:fixed;">
+<BODY   style="background-position:center; background-repeat:no-repeat; background-attachment:fixed;" >
 
 	<script type = "text/javascript" src = "jquery-2.0.3.min.js"></script>
 	<script type = "text/javascript" src = "jquery-ui-1.10.3.custom.min.js"></script>
@@ -32,6 +32,8 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<!--<script src="js/bootstrap.min.js"></script>-->
 	<script src="js/chosen.jquery.min.js"></script>
+
+<!--
 	<script>
 		$.getJSON( "mock-data/courses2.json", function( json ) {
 			var items = [];
@@ -77,6 +79,7 @@
 			$(".prefered-select").trigger("chosen:updated");
 		});
 	</script>
+-->
 		    <div class = "block">
 						
 <TABLE width="100%" border=0 cellspacing=0 cellpadding=0 height=350>
@@ -116,13 +119,14 @@
 									class="course-select"
 									style="width:500px;"
 									name="coursescompleted"
-									id="completed"
+									id="course-select"
 									multiple=""
-									tabindex="3">
+									tabindex="3"
+									onload="getCourses()">
 								</select></td>
 							</TR>
 							<TR> 
-								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 onload="getCourses()"/></TD>
 							</TR>
 							</div>
 							<div class = "element">
@@ -133,13 +137,13 @@
 									class="waived-select"
 									style="width:500px;"
 									name="courseswaived"
-									id="waived"
+									id="waived-select"
 									multiple=""
 									tabindex="3">
 								</select></td>
 							</TR>
 							<TR> 
-								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 onload="getWaived()"/></TD>
 							</TR>
                             </div>
 							<div id = "element">
@@ -150,13 +154,14 @@
 									class="prefered-select"
 									style="width:500px;"
 									name="coursepreferences"
-									id="preferences"
+									id="prefered-select"
 									multiple=""
-									tabindex="3">
+									tabindex="3"
+									onload="getPrefered()">
 								</select></TD></TR>
 
 							<TR>
-								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
+								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 onload="getPrefered()"/></TD>
 							</TR>
 							</div>
 							<div id = "element">
@@ -200,7 +205,7 @@
 						<div class = "element">
 					<TR>						
 						<TD>											
-							<!--<input type="submit" name="save" value="Submit" onclick="Show()"></TD>  they should be updated in database -->							<td><button type='button' name='show' id='show' onclick="build()">GO!</button></td>
+							<!--<input type="submit" name="save" value="Submit" onclick="Show()"></TD>  they should be updated in database -->							<td><button type='button' name='show' id='show' onclick="Show()">GO!</button></td>
 					</TR>
 					<TR>
 						<TD height=20 colspan=2></TD>
@@ -221,18 +226,28 @@
           
 		  <div class = "clear"></div>
 		  
-		  <!--<div id="Input">stuff</div> -->
+		  <!--<div id="Input">stuff</div>-->
 		  <table id="scheduleholder" style="visibility:hidden"><tr><td>
 		  <div id="Output"><table id="schedule" >
-				</table></div></td>
+				</table></div></td><td style="width:5%"></td>
+				<td style="width:45%; text-align:left; vertical-align:text-top"> <div id="GradReq">
+				<p><h3>Graduation Requirements:</h3></p>
+				<p id='core'>Core Courses Remaining:</br><a class='remaining' id='remaining'></a></p>
+				<p id='fivek'>6/6 5000 Level or Higher</p>
+				<p id='sixk'>1/1 6000 Level Class<p>
+				<p id='thirtyhours'>30/30 Hours Remaining</p>
+				<p id='missing-req'></p>
+				</div></td>
+			</tr>
+			<tr><td> <button type='button' name='add' id='add' onclick="addNew()"style="visibility:hidden">Add</button></td</tr>
 
-		  <td style="width:45%; text-align:left; vertical-align:text-top"> <div id="Messages">
+		  <tr style="text-align:left; vertical-align:text-top"><td> <div id="Messages">
 		  	<p><FONT color="red">*</FONT>&nbsp;First time students must get their schedule approved by Kimberly.</p>
 		  	<p><FONT color="red">*</FONT>&nbsp;You must attend 5 seminars prior to graduation.</p>
 		  	<p><FONT color="red">*</FONT>&nbsp;After completing 21 hours, if you want to graduate in the coming term, you must file your intent.</p>
-	  	</td></tr></table>
+	  	</div></td></tr></table>
 		  <!--<button type='button' name='back' id='back' onclick="Back()" style="visibility:hidden">Back</button>-->
-		  <button type='button' name='add' id='add' onclick="addNew()"style="visibility:hidden">Add</button>
+
 
 </BODY>
 </HTML>

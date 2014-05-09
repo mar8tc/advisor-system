@@ -19,8 +19,7 @@
 	<script type = "text/javascript" src = "jquery-2.0.3.min.js"></script>
 	<script type = "text/javascript" src = "jquery-ui-1.10.3.custom.min.js"></script>
 	
-	<script src="php/ajaxadvisor.js"></script>
-	<script src="js/scheduleUI.js"></script>
+	<script src="js/example.js"></script>
       
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.0.min.js"></script>
@@ -28,23 +27,7 @@
 	<!--<script src="js/bootstrap.min.js"></script>-->
 	<script src="js/chosen.jquery.min.js"></script>
 
-<!--
-	<script>
-		$.getJSON( "mock-data/courses2.json", function( json ) {
-			var items = [];
-			$.each( json, function( key, val ) {
-				items.push( "<option value='" + key + "'>" + val + "</option>" );
-			});
 
-			$(items.join( "" )).appendTo( ".prefered-select" );
-			$(".prefered-select").trigger("chosen:updated");
-		});
-		jQuery(document).ready(function(){
-			jQuery(".prefered-select").chosen();
-			$(".prefered-select").trigger("chosen:updated");
-		});
-	</script>
--->
 	<div id="scheduleholder">
 
 		<table id="schedule" >
@@ -55,10 +38,10 @@
 
 		</table>
 		  <button type='button' name='add' id='add' onclick="addNew()">add</button>
-		  <button type='button' name='back' id='back' onclick="Show()">Build</button>
+		  <button type='button' name='back' id='back' onclick="getCourses()">Build</button>
 	</div>
 
-	<div id="dump"></div>
+	<div id="dump">stuff</div>
 
 
 </body>
