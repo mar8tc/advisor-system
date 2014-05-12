@@ -210,7 +210,7 @@ var graphplan;
 function Show(){       
 	//alert("in");
 	graphplan = document.getElementById("graphplan").checked;
-	alert(graphplan);
+	//alert(graphplan);
 	takencourses = [];
 	waivedcourses = [];
 	var coursesTaken = document.getElementById("course-select");

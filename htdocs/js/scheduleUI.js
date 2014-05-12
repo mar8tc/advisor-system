@@ -507,7 +507,7 @@ function build(){
 		var response = xhr.responseText;
 		//document.getElementById("schedule").innerHTML = response;
 	
-	if (graphplan == "true"){
+	if (graphplan){
 		schedule = eval ("(" + response + ")"); 
 	}
 	else{
