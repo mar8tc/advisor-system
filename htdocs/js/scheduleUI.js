@@ -201,6 +201,7 @@ var termstore = "Fall";
 var schedule;
 var takencourses;
 var waivedcourses;
+var timepref;
 //////////////////////////////////////
 
 function Show(){       
@@ -270,7 +271,6 @@ function Show(){
 	var waived = result2;
 	var prefered = result3;
 	var timeofday = document.getElementsByName('time');
-	var timepref;
 	for(var i = 0; i < timeofday.length; i++){
 		if(timeofday[i].checked){
 			timepref = "\"" + timeofday[i].value + "\"";
@@ -612,6 +612,7 @@ function addSemester(list){
 									if(key == waivedcourses[i]) add = 0;
 									else;
 								}
+								if (timepref == "evening" && time == "D") add = 0;
 
 								if(add == 1){
 									//document.getElementById("dump").innerHTML += key + "<br>";

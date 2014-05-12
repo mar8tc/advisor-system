@@ -201,6 +201,7 @@ var termstore = "Fall";
 var schedule;
 var takencourses;
 var waivedcourses;
+var timepref;
 //////////////////////////////////////
 
 function Show(){       
@@ -270,7 +271,6 @@ function Show(){
 	var waived = result2;
 	var prefered = result3;
 	var timeofday = document.getElementsByName('time');
-	var timepref;
 	for(var i = 0; i < timeofday.length; i++){
 		if(timeofday[i].checked){
 			timepref = "\"" + timeofday[i].value + "\"";
@@ -616,9 +616,11 @@ function addSemester(list){
 								if(add == 1){
 									//document.getElementById("dump").innerHTML += key + "<br>";
 									var option = "<option value='" + key + "' ";
+									/**
 									if( courseno == 4250 || courseno == 4760 || courseno == 5130 || courseno == 5500 || courseno == 5700){
 										option += "style='background-color:green;'";
 									}
+									*/
 									for (var course in list){
 										//alert(list[course] + "  " + key);
 										if (list[course] == key){
