@@ -295,7 +295,7 @@ function Show(){
 	
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = build;//put this on the new page
-	xhr.open("POST","php/mirror.php?&student=" + student,true);
+	xhr.open("POST","../../graphplan.php?&student=" + student,true);
 	xhr.send();
 
 	build();
