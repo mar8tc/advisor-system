@@ -204,12 +204,13 @@ var waivedcourses;
 var timepref;
 var minclasses;
 var maxclasses;
-var graphplan;
+var graphplan = true;
 //////////////////////////////////////
 
 function Show(){       
 	//alert("in");
 	graphplan = document.getElementById("graphplan").checked;
+	
 	//alert(graphplan);
 	takencourses = [];
 	waivedcourses = [];
@@ -621,9 +622,13 @@ function addSemester(list){
 									if(key == waivedcourses[i]) add = 0;
 									else;
 								}
+
 								//alert(timepref + " " + time);
 								if (timepref == "evening" && time != "E") add = 0;
 								else;
+								for (var course in list){
+									if (list[course] == key) add = 1;
+								}
 								//alert(add);
 								if(add == 1){
 									//document.getElementById("dump").innerHTML += key + "<br>";
