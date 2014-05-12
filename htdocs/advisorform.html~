@@ -190,9 +190,8 @@
 							
 							<TR>
 								<TD><FONT color="red">*</FONT>&nbsp;Class Time Preference</TD>
-								<TD>&nbsp;<input type="radio" name = "time" id = "time1" value="evening">Evening
-								&nbsp;<input type = "radio" name = "time" id = "time2" value = "day">Day
-								&nbsp;<input type = "radio" name = "time" id = "time3" value = "either" checked>No Preference</TD>
+								<TD>&nbsp;<input type="radio" name = "time" id = "time1" value='evening'>Evening
+								&nbsp;<input type = "radio" name = "time" id = "time3" value = 'either' checked>No Preference</TD>
 							</TR>
 							<TR> 
 								<TD colspan=2><IMG src="break.gif" height=1 width=300 vspace=6 /></TD>
