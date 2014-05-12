@@ -202,10 +202,15 @@ var schedule;
 var takencourses;
 var waivedcourses;
 var timepref;
+var minclasses;
+var maxclasses;
+var graphplan;
 //////////////////////////////////////
 
 function Show(){       
 	//alert("in");
+	graphplan = document.getElementById("graphplan").checked;
+	alert(graphplan);
 	takencourses = [];
 	waivedcourses = [];
 	var coursesTaken = document.getElementById("course-select");
@@ -277,7 +282,10 @@ function Show(){
 		}
 	}
 	var noclassesmax = "\"" + document.getElementById("maxnumb").selectedIndex + "\"";
+	maxclasses = document.getElementById("maxnumb").selectedIndex;
+
 	var noclassesmin =  "\"" + document.getElementById("minnumb").selectedIndex + "\"";
+	minclasses = document.getElementById("minnumb").selectedIndex
 	
 	var student = '{"student": {"courses": {"taken":' + taken + ',"waived":' + waived + ',"prefered":' + prefered + '},"timePref": {"timeofday":' + timepref + ',"maxclasses":' + noclassesmax + ',"minclasses":' + noclassesmin + '}}}';
 
@@ -499,10 +507,10 @@ function build(){
 		var response = xhr.responseText;
 		//document.getElementById("schedule").innerHTML = response;
 	
-	try{
+	if (graphplan == "true"){
 		schedule = eval ("(" + response + ")"); 
 	}
-	catch(err){
+	else{
 		var response = '{"Schedule":{"Fall_2014":{"CMP_SCI4250":"CMP SCI 4250 Programming Languages","CMP_SCI5130":"CMP SCI 5130 Advanced Data Structures and Algorithms","CMP_SCI5420":"CMP SCI 5420 Digital Image Processing","CMP_SCI4410":"CMP SCI 4410 Computer Graphics"},"Spring_2015":{"CMP_SCI4760":"CMP SCI 4760 Operating Systems","CMP_SCI5500":"CMP SCI 5500 Software Engineering","CMP_SCI5700":"CMP SCI 5700 Computer Systems","CMP_SCI5320":"CMP SCI 5320 Introduction to Evolutionary Computation"},"Fall_2015":{"CMP_SCI6340":"CMP SCI 6340 Genetic Programming","CMP_SCI5010":"CMP SCI 5010 Enterprise Web Development"}}}';
 		schedule = eval ("(" + response + ")"); 
 	}
@@ -613,10 +621,10 @@ function addSemester(list){
 									if(key == waivedcourses[i]) add = 0;
 									else;
 								}
-								alert(timepref + " " + time);
+								//alert(timepref + " " + time);
 								if (timepref == "evening" && time != "E") add = 0;
 								else;
-								alert(add);
+								//alert(add);
 								if(add == 1){
 									//document.getElementById("dump").innerHTML += key + "<br>";
 									var option = "<option value='" + key + "' ";

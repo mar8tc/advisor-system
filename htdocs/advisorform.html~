@@ -179,6 +179,7 @@
 									<option value = "3">3 courses</option>
 									<option value = "4">4 courses</option>
 									</select>
+										<input type='checkbox' id='graphplan' checked='checked'>Use GraphPlan?</input>
 									</TD>
 								</TR>
 							</TR>
