@@ -209,7 +209,7 @@ var graphplan = true;
 
 function Show(){       
 	//alert("in");
-	//graphplan = document.getElementById("graphplan").checked;
+	graphplan = document.getElementById("graphplan").checked;
 	
 	//alert(graphplan);
 	takencourses = [];

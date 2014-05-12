@@ -614,6 +614,12 @@ function addSemester(list){
 								var key = subject + courseno;
 								key = key.replace(/ /g, "_");
 								
+								if (timepref == "evening" && time != "E") add = 0;
+								else;
+								for (var course in list){
+									if (list[course] == key) add = 1;
+								}
+
 								for (var i in takencourses){
 									if(key == takencourses[i]) add = 0;
 									else;
@@ -624,11 +630,7 @@ function addSemester(list){
 								}
 
 								//alert(timepref + " " + time);
-								if (timepref == "evening" && time != "E") add = 0;
-								else;
-								for (var course in list){
-									if (list[course] == key) add = 1;
-								}
+
 								//alert(add);
 								if(add == 1){
 									//document.getElementById("dump").innerHTML += key + "<br>";
