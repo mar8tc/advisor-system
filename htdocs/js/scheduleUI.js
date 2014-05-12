@@ -437,6 +437,7 @@ function checkReqs(){
 	var fivecount = 0;
 	var sixcount = 0;
 	var totalcount = 0;
+	var take = 1;
 	for (var course in courses){
 		
 		var number = courses[course][7];
@@ -447,14 +448,20 @@ function checkReqs(){
 		
 		
 	}
-		for (var course in takencourses){
+	for (var stuff in takencourses){
+		take = 1;
+		for (var course in courses){
 		
-		var number = takencourses[course][7];
-		//alert(number);
-		if (number >= 4) totalcount = totalcount + 1;
-		if (number >= 5) fivecount = fivecount + 1;
-		if (number == 6) sixcount = sixcount + 1;
-		
+			if(takencourses[stuff] == courses[course]) take = 0;
+			else;
+		}
+		if(take == 1){
+				var number = takencourses[course][7];
+				//alert(number);
+				if (number >= 4) totalcount = totalcount + 1;
+				if (number >= 5) fivecount = fivecount + 1;
+				if (number == 6) sixcount = sixcount + 1;
+		}
 		
 	}
 	document.getElementById("fivek").innerHTML = fivecount + "/6 Courses of 5000 level or higher";
