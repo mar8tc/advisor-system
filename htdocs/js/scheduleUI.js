@@ -456,7 +456,7 @@ function checkReqs(){
 			else;
 		}
 		if(take == 1){
-				var number = takencourses[course][7];
+				var number = takencourses[stuff][7];
 				//alert(number);
 				if (number >= 4) totalcount = totalcount + 1;
 				if (number >= 5) fivecount = fivecount + 1;
